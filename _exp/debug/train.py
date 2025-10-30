@@ -3,7 +3,8 @@ from typing import Any, Dict, Optional
 import agentlightning as agl
 
 from data import TRAIN_DATA
-from base_agent import LitBaseAgent
+# from base_agent import LitBaseAgent
+from base_utu_agent import LitBaseAgent
 
 
 RL_TRAINING_CONFIG: Dict[str, Any] = {
@@ -76,9 +77,7 @@ def main(active_agent: Optional[str] = None) -> None:
     trainer = agl.Trainer(n_runners=2, algorithm=algorithm, adapter={"agent_match": active_agent})
     print("Adapter agent match acknowledged:", trainer.adapter.agent_match)  # type: ignore
 
-    train_data = TRAIN_DATA
-    val_data = TRAIN_DATA
-    trainer.fit(agent, train_dataset=train_data, val_dataset=val_data)  # type: ignore
+    trainer.fit(agent, train_dataset=TRAIN_DATA, val_dataset=TRAIN_DATA)  # type: ignore
 
 if __name__ == "__main__":
     main()

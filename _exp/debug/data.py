@@ -1,4 +1,6 @@
-TRAIN_DATA = [
+from agentlightning.types import Dataset
+
+TRAIN_DATA: Dataset[dict[str,str]] = [
     {
         "question": "What is the capital of France?",
         "answer": "Paris",

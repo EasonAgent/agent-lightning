@@ -7,4 +7,4 @@ TRAIN_DATA = [
         "question": "Who wrote 'To Kill a Mockingbird'?",
         "answer": "Harper Lee",
     }
-]
+] * 20

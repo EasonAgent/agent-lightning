@@ -55,3 +55,6 @@ def debug():
         },
     )
     trainer.dev(LitBaseAgent(), TRAIN_DATA)
+
+if __name__ == "__main__":
+    debug()

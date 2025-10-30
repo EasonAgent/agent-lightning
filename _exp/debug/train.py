@@ -73,7 +73,7 @@ def main(active_agent: Optional[str] = None) -> None:
     config = RL_TRAINING_CONFIG
     agent = LitBaseAgent()
     algorithm = agl.VERL(config)
-    trainer = agl.Trainer(n_runners=10, algorithm=algorithm, adapter={"agent_match": active_agent})
+    trainer = agl.Trainer(n_runners=2, algorithm=algorithm, adapter={"agent_match": active_agent})
     print("Adapter agent match acknowledged:", trainer.adapter.agent_match)  # type: ignore
 
     train_data = TRAIN_DATA

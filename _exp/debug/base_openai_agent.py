@@ -14,8 +14,6 @@ from agentlightning import (
     configure_logger,
 )
 
-from data_base import TRAIN_DATA
-
 configure_logger(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -42,19 +40,3 @@ class LitBaseAgent(LitAgent[Any]):
         logger.debug(f"Completed rollout {rollout_id} with result: {result.final_output}")
         # TODO: calc reward
         return 0
-
-def debug():
-    trainer = Trainer(
-        n_workers=1,
-        initial_resources={
-            "main_llm": LLM(
-                endpoint="http://9.134.241.185:8501/v1",
-                model="DeepSeek-V3.1",
-                sampling_parameters={"temperature": 0.7},
-            )
-        },
-    )
-    trainer.dev(LitBaseAgent(), TRAIN_DATA)
-
-if __name__ == "__main__":
-    debug()

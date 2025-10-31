@@ -2,7 +2,7 @@ from typing import Any, Dict, Optional
 
 import agentlightning as agl
 
-from data_base import TRAIN_DATA, VAL_DATA, RL_TRAINING_CONFIG
+from base_data import TRAIN_DATA, VAL_DATA, RL_TRAINING_CONFIG
 # from base_openai_agent import LitBaseAgent
 from base_utu_agent import LitBaseAgent
 

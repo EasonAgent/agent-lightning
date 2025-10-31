@@ -14,7 +14,7 @@ from agentlightning import (
     configure_logger,
 )
 
-from data import TRAIN_DATA
+from data_base import TRAIN_DATA
 
 configure_logger(level=logging.DEBUG)
 logger = logging.getLogger(__name__)

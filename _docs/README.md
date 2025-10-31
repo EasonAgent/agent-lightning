@@ -1,0 +1,3 @@
+- github: <https://github.com/microsoft/agent-lightning>
+- doc: <https://microsoft.github.io/agent-lightning/stable/>
+- version: 0.2.1 - eason

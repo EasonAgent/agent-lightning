@@ -28,23 +28,12 @@ class LitBaseAgent(LitAgent[Any]):
         super().__init__(trained_agents=trained_agents)
 
     async def rollout_async(self, task: Dict[str, Any], resources: NamedResources, rollout: Rollout) -> float | None:
+        """ task (data) structure: {question, data_source, golden_answers} """
         rollout_id = rollout.rollout_id
         print(f"Starting rollout {rollout_id} for task: {task}")
 
         llm: LLM = cast(LLM, resources.get("main_llm"))
 
-        # op1: use SimpleAgent directly
-        # agent = SimpleAgent(
-        #     name="agl-debug",
-        #     instructions="You are a helpful assistant.",
-        #     model=LitellmModel(model="hosted_vllm/" + llm.model, base_url=llm.endpoint),
-        #     model_settings=ModelSettings(
-        #         max_tokens=4096,
-        #         temperature=0.7,
-        #     ),
-        # )
-
-        # op2: use YAML config
         config = ConfigLoader.load_agent_config("simple/base")
         # overwrite
         config.model.model_provider.model = llm.model
@@ -62,7 +51,7 @@ class LitBaseAgent(LitAgent[Any]):
         # calc reward
         reward = await evaluate(
             question=task["question"],
-            gt=task["answer"],
+            gt=task["golden_answers"],
             pred=result.final_output,
         )
         return reward

@@ -2,10 +2,14 @@ from typing import Any, Dict, Optional
 
 import agentlightning as agl
 
-from base_data import TRAIN_DATA, VAL_DATA, RL_TRAINING_CONFIG
-# from base_openai_agent import LitBaseAgent
-from base_utu_agent import LitBaseAgent
+# setting 1: base
+# from base_data import TRAIN_DATA, VAL_DATA, RL_TRAINING_CONFIG
+# # from base_openai_agent import LitBaseAgent
+# from base_utu_agent import LitBaseAgent
 
+# setting 2: qa by @yulei
+from qa_agent import LitBaseAgent
+from qa_data import TRAIN_DATA, VAL_DATA, RL_TRAINING_CONFIG
 
 
 def main(active_agent: Optional[str] = None) -> None:

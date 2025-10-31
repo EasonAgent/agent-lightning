@@ -59,7 +59,6 @@ def config_train_qwen_7b() -> dict[str, Any]:
     from base_data import RL_TRAINING_CONFIG
     
     config = deepcopy(RL_TRAINING_CONFIG)
-    config["actor_rollout_ref"]["model"]["name"] = "models/Qwen2.5-7B-Instruct_Qwen"
     config["actor_rollout_ref"]["model"]["path"] = "/cfs_turbo/yuleiqin/models/Qwen2.5-7B-Instruct_Qwen"
     config["actor_rollout_ref"]["rollout"]["tensor_model_parallel_size"] = 2
 
